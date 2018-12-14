@@ -42,9 +42,10 @@ import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
@@ -288,7 +289,7 @@ public class TextExtractPar implements Serializable {
 				PDFParser parser;
 				try {
 
-					parser = new PDFParser(fis);
+					parser = new PDFParser(new RandomAccessBufferedFileInputStream(fis));
 					parser.parse();
 					COSDocument cd = parser.getDocument();
 					PDFTextStripper stripper = new PDFTextStripper();
