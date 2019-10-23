@@ -29,10 +29,11 @@ public class Main
 
                 option = Integer.parseInt(reader.readLine());
 
-                switch(option) {
-                    case 1: TestRR2Lev.menu(); break;
-                    case 2: TestDynRH.menu(); break;
-                }
+//                switch(option) {
+//                    case 1: TestRR2Lev.menu(); break;
+//                    case 2: TestDynRH.menu(); break;
+//                }
+                TestDynRH.menu();
             }
             catch (InputMismatchException | NumberFormatException ime ) {
                 try

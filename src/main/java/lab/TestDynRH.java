@@ -35,10 +35,11 @@ public class TestDynRH {
 
                 option = Integer.parseInt(reader.readLine());
 
-                switch(option) {
-                    case 1: test1(); break;
-                    case 2: test2(); break;
-                }
+//                switch(option) {
+//                    case 1: test1(); break;
+//                    case 2: test2(); break;
+//                }
+            test2();
             }
             catch (InputMismatchException | NumberFormatException ime ) {
                 try
@@ -163,7 +164,9 @@ public class TestDynRH {
 
             if(index == null) return;
 
-            //Complete
+            File[] fileList = new File(pathName).listFiles();
+               
+            Utils.encryptFiles(fileList, key);
         }
         else if (option == 2)
         {
